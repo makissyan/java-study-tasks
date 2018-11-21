@@ -36,7 +36,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.makofon.Main</mainClass>
+                            <mainClass>com.makofon.chatstructure.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
