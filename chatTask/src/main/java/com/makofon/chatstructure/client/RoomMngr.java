@@ -13,8 +13,8 @@ public class RoomMngr {
 
     //creating a room.
     //to implement if only one user chosen - createRoom(User user.getNickname, User user)
-    public RoomCl createRoom(UserCl... user) {
-        return new RoomCl("PRIVATE", user);
+    public RoomCl createRoom(String groupName, UserCl... user) {
+        return new RoomCl(groupName, user);
     }
     //Feeling guilty for such function implementation...
     //Should be 2 separate function - printUserRooms and printRoomParticipant.
