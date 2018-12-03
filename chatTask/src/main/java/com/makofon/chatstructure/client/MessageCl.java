@@ -1,15 +1,14 @@
 package com.makofon.chatstructure.client;
 
-import com.makofon.chatstructure.protocol.MessageProtocol;
-
+//Class which implements structure of message
 public class MessageCl {
 
     private String body;
 
-    public MessageCl(String body, MessageProtocol.MessageType type) {
+    public MessageCl(String body) {
         this.body = body;
     }
-
+    //method should be used for message editing
     public void setBody(String body) {
         this.body = body;
     }
