@@ -2,13 +2,14 @@ package com.makofon.chatstructure.client;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class RoomCl {
 
-    private TreeMap<String, List<UserCl>> userRoom = new TreeMap<String, List<UserCl>>();
+    private Map<String, List<UserCl>> userRoom = new TreeMap<String, List<UserCl>>();
 
-    public RoomCl(String name, UserCl... user){
+    public RoomCl(String name, UserCl... user) {
         List<UserCl> users = new ArrayList<UserCl>();
         for (UserCl newUser : user) {
             users.add(newUser);
@@ -16,11 +17,11 @@ public class RoomCl {
         userRoom.put(name, users);
     }
 
-    public RoomCl(){
+    public RoomCl() {
 
     }
 
-    public TreeMap<String, List<UserCl>> getUserRoom() {
+    public Map<String, List<UserCl>> getRooms() {
         return userRoom;
     }
 

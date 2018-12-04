@@ -29,24 +29,19 @@ public class UserCl {
         this.age = age;
     }
 
-    public UserCl getUser(){
+    public UserCl getUser() {
         return this;
     }
 
-    public void addUserRoom(RoomCl room){
+    public void addUserRoom(RoomCl room) {
         userRooms.add(room);
     }
 
-    public List<RoomCl> getUserRooms(){
+    public List<RoomCl> getUserRooms() {
         return userRooms;
     }
 
-    public void printUserRooms(){
-        for (RoomCl room : userRooms)
-            System.out.println(room.toString());
-
-    }
-    public void updateUserRooms(List<RoomCl> updatedRooms){
+    public void updateUserRooms(List<RoomCl> updatedRooms) {
         userRooms = updatedRooms;
     }
 }

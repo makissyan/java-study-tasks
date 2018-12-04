@@ -1,6 +1,7 @@
 package com.makofon.chatstructure.client;
 
-import java.util.ArrayList;
+import org.apache.log4j.Logger;
+
 import java.util.List;
 import java.util.TreeMap;
 
@@ -9,34 +10,53 @@ import java.util.TreeMap;
 public class RoomMngr {
     private RoomCl tempRoom = new RoomCl();
     private TreeMap<String, List<UserCl>> tempRoomList;
-    private List<RoomCl> tempRoomsList = new ArrayList<RoomCl>();
+    private Logger log = Logger.getLogger(getClass());
 
-    //creating a room.
-    //to implement if only one user chosen - createRoom(User user.getNickname, User user)
+
+    //creating a room with multiple users
     public RoomCl createRoom(String groupName, UserCl... user) {
+        log.debug("Room with multiple users created");
         return new RoomCl(groupName, user);
     }
+
+    //creating a room with one user
+    public RoomCl createRoom(UserCl user) {
+        log.debug("Room with one user created");
+        return new RoomCl(user.getNickname(), user);
+    }
+
     //Feeling guilty for such function implementation...
-    //Should be 2 separate function - printUserRooms and printRoomParticipant.
     public void printUserRooms(UserCl user) {
+        System.out.println();
         //getting quantity of rooms and iterating by each
         for (int i = 0; i < user.getUserRooms().size(); i++) {
             tempRoom = user.getUserRooms().get(i);
             //iterating by each key
-            for (String key : tempRoom.getUserRoom().keySet()) {
-                System.out.println(key+":");
+            for (String key : tempRoom.getRooms().keySet()) {
+                System.out.println(key + ":");
                 //iterating by users
-                for (int x = 0; x < tempRoom.getUserRoom().get(key).size(); x++)
-                    System.out.println(("\t"+tempRoom.getUserRoom().get(key).get(x).getNickname()));
+                for (int x = 0; x < tempRoom.getRooms().get(key).size(); x++)
+                    System.out.println(("\t" + tempRoom.getRooms().get(key).get(x).getNickname()));
             }
         }
     }
-    //to implement...
-    public boolean deleteRoom(UserCl user, String key){
 
-         return true;
+    public boolean deleteRoom(UserCl user, String key) {
+        for (int i = 0; i < user.getUserRooms().size(); i++) {
+            if (user.getUserRooms().get(i).getRooms().containsKey(key)) {
+                user.getUserRooms().get(i).getRooms().remove(key);
+                log.debug("Room deleted");
+                return true;
+            }
+
+        }
+        log.debug("Room couldn't be found");
+        return false;
     }
 
-    //to implement sendMessage function
 }
 
+//to ask:
+//Interface... need to return string with json...but impossible to create method with parameters
+// how to assign room for each user
+// how to depending on server's response return true or false
