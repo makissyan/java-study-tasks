@@ -1,0 +1,17 @@
+*.iml
+*.idea
+*log
+*target
+*test-output
+.settings
+.project
+.vscode
+.classpath
+.factorypath
+bin
+
+# Terraform
+.terraform
+*.tfstate
+*.tfstate.*
+
