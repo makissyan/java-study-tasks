@@ -1,4 +1,5 @@
-package org.maksym.springBasics;
+package org.maksym.springBasics.xmlConfiguration;
+
 
 public class ClassicalMusic implements IMusic {
     @Override

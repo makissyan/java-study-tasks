@@ -1,4 +1,4 @@
-package org.maksym.springBasics;
+package org.maksym.springBasics.xmlConfiguration;
 
 public class RockMusic implements IMusic {
     @Override
